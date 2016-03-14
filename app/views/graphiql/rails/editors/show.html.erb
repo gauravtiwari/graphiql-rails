@@ -73,7 +73,7 @@
         return response.json()
       });
     }
-    document.addEventListener("turbolinks:load", function() {
+    document.addEventListener("ready turbolinks:load", function() {
       // Render <GraphiQL /> into the body.
       ReactDOM.render(
         React.createElement(GraphiQL, {
@@ -87,7 +87,7 @@
         }),
         document.getElementById("graphiql-container")
       );
-    };
+    });
     </script>
   </body>
 </html>

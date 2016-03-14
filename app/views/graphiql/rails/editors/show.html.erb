@@ -73,7 +73,7 @@
         return response.json()
       });
     }
-    document.addEventListener("ready turbolinks:load", function() {
+    document.addEventListener("turbolinks:load", function() {
       // Render <GraphiQL /> into the body.
       ReactDOM.render(
         React.createElement(GraphiQL, {

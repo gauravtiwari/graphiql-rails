@@ -73,20 +73,21 @@
         return response.json()
       });
     }
-
-    // Render <GraphiQL /> into the body.
-    ReactDOM.render(
-      React.createElement(GraphiQL, {
-        fetcher: graphQLFetcher,
-        query: parameters.query,
-        <% if GraphiQL::Rails.config.query_params %>
-        variables: parameters.variables,
-        onEditQuery: onEditQuery,
-        onEditVariables: onEditVariables
-        <% end %>
-      }),
-      document.getElementById("graphiql-container")
-    );
+    document.addEventListener("turbolinks:load", function() {
+      // Render <GraphiQL /> into the body.
+      ReactDOM.render(
+        React.createElement(GraphiQL, {
+          fetcher: graphQLFetcher,
+          query: parameters.query,
+          <% if GraphiQL::Rails.config.query_params %>
+          variables: parameters.variables,
+          onEditQuery: onEditQuery,
+          onEditVariables: onEditVariables
+          <% end %>
+        }),
+        document.getElementById("graphiql-container")
+      );
+    };
     </script>
   </body>
 </html>
